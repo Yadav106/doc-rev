@@ -1,10 +1,27 @@
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
+import AboutInfo from "../_components/about-info";
+import ProfessionalDetails from "../_components/prof-details";
+
 
 export default function Home() {
   return (
-    <p className="text-3xl text-sky-700">
-      Dashboard
-    </p>
+    <div>
+      {/* Phone View */}
+      <div className="md:hidden flex flex-col">
+        <AboutInfo />
+        <ProfessionalDetails />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden md:flex md:justify-around p-10">
+        <div className="w-[60%]">
+          <ProfessionalDetails />
+        </div>
+        <div className="w-[30%] border border-black rounded-xl bg-gray-100">
+          <AboutInfo />
+        </div>
+      </div>
+    </div>
   );
 }
