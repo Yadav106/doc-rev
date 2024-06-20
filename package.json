@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "primsa generate"
+    "postinstall": "npx primsa generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.12",
