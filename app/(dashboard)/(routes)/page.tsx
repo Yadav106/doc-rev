@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { UserButton } from "@clerk/nextjs";
 import AboutInfo from "../_components/about-info";
 import ProfessionalDetails from "../_components/prof-details";
 
