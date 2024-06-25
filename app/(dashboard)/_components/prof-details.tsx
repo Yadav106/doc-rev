@@ -106,22 +106,24 @@ const ProfessionalDetails = () => {
                     Reviews
                 </p>
                 
-                {
-                    reviews.length > 0 
-                    ?
-                    reviews.map(review => {
-                        return <ReviewBox 
-                            key={review.id} 
-                            author={review.author} 
-                            authorImage={review.authorImage}
-                            title={review.title}
-                            body={review.body}
-                            rating={review.rating}
-                        />
-                    })
-                    :
-                    <div>Loading...</div>
-                }
+                <div className='flex flex-col gap-3 mt-[20px]'>
+                    {
+                        reviews.length > 0 
+                        ?
+                        reviews.map(review => {
+                            return <ReviewBox 
+                                key={review.id} 
+                                author={review.author} 
+                                authorImage={review.authorImage}
+                                title={review.title}
+                                body={review.body}
+                                rating={review.rating}
+                            />
+                        })
+                        :
+                        <div>Loading...</div>
+                    }
+                </div>
             </div>
         </div>
     )
