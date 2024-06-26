@@ -4,7 +4,13 @@ import { NextResponse } from "next/server"
 export async function GET(
     request: Request
 ) {
-    const reviews = await prisma.review.findMany()
+    try {
+        const reviews = await prisma.review.findMany()
 
-    return NextResponse.json({"reviews" : reviews});
+        return NextResponse.json({"reviews" : reviews});
+    } catch (error) {
+        console.log("GET_REVIEW_ERROR")
+        console.log(error)
+        return new NextResponse('Internal server error', { status: 500 });
+    }
 }

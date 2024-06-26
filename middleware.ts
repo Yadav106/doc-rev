@@ -1,11 +1,14 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { withAuth } from "next-auth/middleware";
 
-export default authMiddleware({});
-
-// export const config = {
-//   matcher: ["/((?!.+.[w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
-// };
+export default withAuth({
+    pages: {
+        signIn: '/'
+    }
+});
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)","/","/(api|trpc)(.*)"],
+    matcher: [
+        "/dashboard/:path*",
+        "/reviews/:path*"
+    ]
 };

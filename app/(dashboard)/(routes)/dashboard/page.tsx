@@ -1,8 +1,8 @@
-import AboutInfo from "../_components/about-info";
-import ProfessionalDetails from "../_components/prof-details";
+import AboutInfo from "../../_components/about-info";
+import ProfessionalDetails from "../../_components/prof-details";
 
 
-export default function Home() {
+export default function Dashboard() {
   return (
     <div>
       {/* Phone View */}

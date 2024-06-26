@@ -1,26 +1,29 @@
 "use client"
 
-import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import axios from "axios";
 
 const Reviews = () => {
-    const { isSignedIn, user } = useUser()
+    async function addReview() {
+        const response = await axios.post(
+            "/api/addReview",
+            {
+                title: "Nice",
+                body: "Test review with rating 3",
+                rating: 3
+            }
+        )
 
-    if (!isSignedIn) {
-        return null
+        console.log(response)
     }
 
-    return ( 
+    return (
         <div>
-            {user.imageUrl}
-            <Image
-                src={user.imageUrl}
-                height={100}
-                width={100}
-                alt="user image"
-            />
+            <Button onClick={() => addReview()}>
+                Add Review
+            </Button>
         </div>
-     );
+    )
 }
  
 export default Reviews;

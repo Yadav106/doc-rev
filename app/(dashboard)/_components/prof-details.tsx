@@ -7,8 +7,9 @@ import ReviewBox from './reviewBox';
 
 interface ReviewProps {
     id: string,
+    authorId: string,
     authorImage: string,
-    author: string,
+    authorName: string,
     title: string,
     body: string,
     rating: number
@@ -113,7 +114,7 @@ const ProfessionalDetails = () => {
                         reviews.map(review => {
                             return <ReviewBox 
                                 key={review.id} 
-                                author={review.author} 
+                                author={review.authorName} 
                                 authorImage={review.authorImage}
                                 title={review.title}
                                 body={review.body}
