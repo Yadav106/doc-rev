@@ -28,7 +28,11 @@ const ProfessionalDetails = () => {
             const reviewResponse = await axios.get('/api/reviews')
             const reviewData = reviewResponse?.data?.reviews
             console.log(reviewData)
-            setReviews(reviewData)
+            if (reviewData.length > 2) {
+                setReviews([reviewData[0], reviewData[1]])
+            } else {
+                setReviews(reviewData)
+            }
         }
 
         getReviews();

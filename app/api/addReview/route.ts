@@ -9,11 +9,13 @@ export async function POST(
         const currentUser = await getCurrentUser();
         const requestBody = await request.json();
 
-        const {
+        let {
             title,
             body,
             rating
         } = requestBody
+
+        let ratingInt = parseInt(rating)
 
         if(!currentUser?.id || !currentUser?.email) {
             return new NextResponse(('Unauthorized'), { status: 401 });
@@ -29,7 +31,7 @@ export async function POST(
                 authorImage: currentUser.image,
                 title,
                 body,
-                rating,
+                rating:ratingInt,
                 authorName: currentUser.name || "Name not available",
             },
             include: {
