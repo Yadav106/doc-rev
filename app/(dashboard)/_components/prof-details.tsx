@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { MapPinIcon, BriefcaseMedicalIcon, Phone, Mail } from "lucide-react"
 import axios from 'axios';
 import ReviewBox from './reviewBox';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 interface ReviewProps {
     id: string,
@@ -20,6 +22,8 @@ const ProfessionalDetails = () => {
     const experience = "Graduated from here";
     const phone = "+1 2345 6789";
     const mail = "bella@gmail.com";
+
+    const router = useRouter();
 
     const [reviews, setReviews] = useState<ReviewProps[]>([])
 
@@ -128,7 +132,14 @@ const ProfessionalDetails = () => {
                         :
                         <div>Loading...</div>
                     }
-                </div>
+                    {
+                        reviews.length > 0 && (
+                            <Button variant='ghost' className='mb-4' onClick={() => router.push('/reviews')}>
+                                Read More
+                            </Button>
+                        )
+                    }
+                </div>  
             </div>
         </div>
     )
