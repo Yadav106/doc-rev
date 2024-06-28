@@ -35,6 +35,7 @@ const AddReviewModal:React.FC<ModalProps> = ({
     });
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        setIsLoading(true)
         axios.post(
             "/api/addReview",
             {
