@@ -7,6 +7,7 @@ import axios from "axios";
 import ReviewBox from "../../_components/reviewBox";
 import { useSession } from "next-auth/react";
 import DeleteReviewModal from "./components/DeleteReviewModal";
+import EditRevewModal from "./components/EditReviewModal";
 
 interface ReviewProps {
     id: string,
@@ -24,6 +25,12 @@ const Reviews = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
     const [deleteModalId, setDeleteModalId] = useState<string>("")
+
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+    const [editTitle, setEditTitle] = useState("")
+    const [editBody, setEditBody] = useState("")
+    const [editRating, setEditRating] = useState(0)
+    const [editId, setEditId] = useState("")
 
     const [reviews, setReviews] = useState<ReviewProps[]>([])
 
@@ -46,7 +53,20 @@ const Reviews = () => {
     return (
         <>
             <AddReviewModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
-            <DeleteReviewModal onClose={() => setIsDeleteModalOpen(false)} isOpen={isDeleteModalOpen} id={deleteModalId}/>
+            <DeleteReviewModal onClose={() => setIsDeleteModalOpen(false)} isOpen={isDeleteModalOpen} id={deleteModalId} />
+            {
+                isEditModalOpen && (
+                    <EditRevewModal 
+                        onClose={() => setIsEditModalOpen(false)}
+                        isOpen={isEditModalOpen} 
+                        editTitle={editTitle}
+                        editBody={editBody}
+                        editRating={editRating}
+                        editId={editId}
+                    />
+                )
+            }
+            
             <div className="mx-[30px] pt-4">
                 <Button onClick={() => setIsOpen(true)}>
                     Add Review
@@ -70,6 +90,15 @@ const Reviews = () => {
                                 authorEmail={review.authorEmail}
                                 setIsDeleteModalOpen={setIsDeleteModalOpen}
                                 setDeleteModalId={setDeleteModalId}
+
+                                setIsEditModalOpen={setIsEditModalOpen}
+                                setEditId={setEditId}
+                                editTitle={editTitle}
+                                setEditTitle={setEditTitle}
+                                editBody={editBody}
+                                setEditBody={setEditBody}
+                                editRating={editRating}
+                                setEditRating={setEditRating}
                             />
                         })
                         :

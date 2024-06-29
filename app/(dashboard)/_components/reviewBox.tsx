@@ -16,10 +16,19 @@ interface ReviewBoxProps {
     authorEmail?: string,
     setIsDeleteModalOpen?: (type:boolean) => void
     setDeleteModalId?: (type:string) => void
+    setIsEditModalOpen?: (type:boolean) => void
+    setEditTitle?: (type:string) => void
+    setEditBody?: (type:string) => void
+    setEditRating?: (type:number) => void
+    setEditId?: (type:string) => void
+    editTitle?: string
+    editBody?: string
+    editRating?: number
 }
 
 const ReviewBox: React.FC<ReviewBoxProps> = ({
-    id, author, authorImage, title, body, rating, userEmail, authorEmail, setIsDeleteModalOpen, setDeleteModalId
+    id, author, authorImage, title, body, rating, userEmail, authorEmail, setIsDeleteModalOpen, setDeleteModalId, setIsEditModalOpen, editTitle, editBody, editRating,
+    setEditTitle, setEditBody, setEditRating, setEditId
 }) => {
   const remainingStars = 5 - rating;
 
@@ -30,6 +39,19 @@ const ReviewBox: React.FC<ReviewBoxProps> = ({
     }
     setDeleteModalId(reviewId)
     setIsDeleteModalOpen(true)
+  }
+
+  const prepareEditModal = () => {
+    if (!setIsEditModalOpen || !setEditTitle || !setEditBody || !setEditRating || !setEditId) {
+      toast.error("Something went wrong!")
+      return
+    }
+
+    setEditTitle(title)
+    setEditBody(body)
+    setEditRating(rating)
+    setEditId(id)
+    setIsEditModalOpen(true)
   }
   return (
     <div className='bg-white rounded-xl shadow-sm shadow-black/40 px-5 py-4 flex justify-between'>
@@ -66,7 +88,7 @@ const ReviewBox: React.FC<ReviewBoxProps> = ({
       {
         userEmail && authorEmail && (userEmail === authorEmail) && (
           <div className='flex gap-5'>
-            <EditIcon className='cursor-pointer hover:fill-gray-400'/>
+            <EditIcon className='cursor-pointer hover:fill-gray-400' onClick={() => prepareEditModal()}/>
             <Trash2 className='cursor-pointer hover:fill-red-400' onClick={() => prepareDeleteModal(id)}/>
           </div>
         )
