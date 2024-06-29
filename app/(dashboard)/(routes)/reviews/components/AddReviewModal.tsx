@@ -49,8 +49,10 @@ const AddReviewModal:React.FC<ModalProps> = ({
             toast.error("Some error occured")
         })
         .finally(() => {
-            setIsLoading(false)
-            location.reload()
+            setTimeout(() => {
+                setIsLoading(false)
+                location.reload()
+            }, 1000)
         })
     }
 
