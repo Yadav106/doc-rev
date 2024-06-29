@@ -121,6 +121,7 @@ const ProfessionalDetails = () => {
                         reviews.map(review => {
                             return <ReviewBox 
                                 key={review.id} 
+                                id={review.id}
                                 author={review.authorName} 
                                 authorImage={review.authorImage}
                                 title={review.title}

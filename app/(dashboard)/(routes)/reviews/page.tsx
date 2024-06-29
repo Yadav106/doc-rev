@@ -6,6 +6,7 @@ import AddReviewModal from "./components/AddReviewModal";
 import axios from "axios";
 import ReviewBox from "../../_components/reviewBox";
 import { useSession } from "next-auth/react";
+import DeleteReviewModal from "./components/DeleteReviewModal";
 
 interface ReviewProps {
     id: string,
@@ -14,13 +15,15 @@ interface ReviewProps {
     authorName: string,
     title: string,
     body: string,
-    rating: number
+    rating: number,
+    authorEmail: string
 }
 
 const Reviews = () => {
     const {data:session} = useSession();
-    console.log(session?.user?.email)
     const [isOpen, setIsOpen] = useState(false)
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+    const [deleteModalId, setDeleteModalId] = useState<string>("")
 
     const [reviews, setReviews] = useState<ReviewProps[]>([])
 
@@ -28,7 +31,13 @@ const Reviews = () => {
         async function getReviews() {
             const reviewResponse = await axios.get('/api/reviews')
             const reviewData = reviewResponse?.data?.reviews
-            setReviews(reviewData)
+            const newReviewData = reviewData.map((item:any) => {
+                return {
+                    ...item,
+                    authorEmail: item.author.email
+                }
+            })
+            setReviews(newReviewData)
         }
 
         getReviews();
@@ -37,24 +46,30 @@ const Reviews = () => {
     return (
         <>
             <AddReviewModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+            <DeleteReviewModal onClose={() => setIsDeleteModalOpen(false)} isOpen={isDeleteModalOpen} id={deleteModalId}/>
             <div className="mx-[30px] pt-4">
                 <Button onClick={() => setIsOpen(true)}>
                     Add Review
                 </Button>
             </div>
 
-            <div className='flex flex-col gap-3 mt-[20px] px-[30px]'>
+            <div className='flex flex-col gap-3 mt-[20px] px-[30px] mb-10'>
                     {
                         reviews.length > 0 
                         ?
                         reviews.map(review => {
                             return <ReviewBox 
                                 key={review.id} 
+                                id={review.id}
                                 author={review.authorName} 
                                 authorImage={review.authorImage}
                                 title={review.title}
                                 body={review.body}
                                 rating={review.rating}
+                                userEmail={session?.user?.email}
+                                authorEmail={review.authorEmail}
+                                setIsDeleteModalOpen={setIsDeleteModalOpen}
+                                setDeleteModalId={setDeleteModalId}
                             />
                         })
                         :
