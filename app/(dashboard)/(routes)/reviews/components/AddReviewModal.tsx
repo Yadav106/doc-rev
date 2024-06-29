@@ -55,7 +55,6 @@ const AddReviewModal:React.FC<ModalProps> = ({
     }
 
     const fillStars = (index:number) => {
-        console.log(hoverRating)
         if (index <= hoverRating || index <= fixedRating) {
             return "#000"
         }

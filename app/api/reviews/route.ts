@@ -8,7 +8,13 @@ export async function GET(
     request: Request
 ) {
     try {
-        const reviews = await prisma.review.findMany()
+        const reviews = await prisma.review.findMany(
+            {
+                include: {
+                    author: true
+                }
+            }
+        )
 
         return NextResponse.json({"reviews" : reviews});
     } catch (error) {

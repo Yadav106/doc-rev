@@ -3,6 +3,7 @@
 import React from 'react'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image';
+import defpic from "@/public/default.png"
 
 interface UserImageProps {
     setShowMore: (state:boolean) => void,
@@ -16,17 +17,14 @@ const UserImage:React.FC<UserImageProps> = ({
     const session = useSession();
     return (
         <div>
-            {
-                session?.data?.user?.image && 
-                <Image 
-                    src={session?.data?.user?.image}
-                    alt="profile"
-                    width={40}
-                    height={40}
-                    className='rounded-full cursor-pointer'
-                    onClick={() => setShowMore(!showMore)}
-                />
-            }
+            <Image 
+                src={session?.data?.user?.image || defpic}
+                alt="profile"
+                width={40}
+                height={40}
+                className='rounded-full cursor-pointer'
+                onClick={() => setShowMore(!showMore)}
+            />
         </div>
     )
 }

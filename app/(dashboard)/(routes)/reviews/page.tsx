@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import AddReviewModal from "./components/AddReviewModal";
 import axios from "axios";
 import ReviewBox from "../../_components/reviewBox";
+import { useSession } from "next-auth/react";
 
 interface ReviewProps {
     id: string,
@@ -17,6 +18,8 @@ interface ReviewProps {
 }
 
 const Reviews = () => {
+    const {data:session} = useSession();
+    console.log(session?.user?.email)
     const [isOpen, setIsOpen] = useState(false)
 
     const [reviews, setReviews] = useState<ReviewProps[]>([])
@@ -25,7 +28,6 @@ const Reviews = () => {
         async function getReviews() {
             const reviewResponse = await axios.get('/api/reviews')
             const reviewData = reviewResponse?.data?.reviews
-            console.log(reviewData)
             setReviews(reviewData)
         }
 

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import bella from "@/public/bella.png"
 import { Star } from 'lucide-react'
+import defpic from '@/public/default.png'
 
 interface ReviewBoxProps {
     author: string,
@@ -18,7 +19,7 @@ const ReviewBox: React.FC<ReviewBoxProps> = ({
   return (
     <div className='bg-white rounded-xl shadow-sm shadow-black/40 px-5 py-4 flex flex-col'>
       <div className='flex gap-3 items-center'>
-        <Image src={authorImage} alt='profile pic' width={50} height={50} className='rounded-full border-black/70 border-[3px]'/>
+        <Image src={authorImage || defpic} alt='profile pic' width={50} height={50} className='rounded-full border-black/70 border-[3px]'/>
         <div className='flex flex-col'>
           <span className='font-semibold text-sm text-gray-900'>
             {author}
