@@ -15,10 +15,10 @@ const LogOutModal:React.FC<ModalProps> = ({
     <Modal isOpen={isOpen} onClose={onClose}>
         <div className='flex flex-col gap-2'>
           <span className='font-bold underline'>Log Out</span>
-          Tussi ja rhe ho?🥹🥹🥹🥹🥹
+            Will you really leave us alone?🥺👉🏻👈🏻
           <div className='flex gap-3 self-end'>
-            <Button variant='outline' onClick={onClose}>Tussi Na jao😭</Button>
-            <Button variant='default' onClick={() => signOut()}>Wapas Zaroor Aana 😔</Button>
+            <Button variant='outline' onClick={onClose}>Cancel</Button>
+            <Button variant='default' onClick={() => signOut()}>{"Yes I'm besharam"}</Button>
           </div>
         </div>
     </Modal>
