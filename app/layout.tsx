@@ -9,8 +9,8 @@ import AuthContext from "./context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dr. Salsa",
-  description: "Dr. Salsa",
+  title: "Dr. Salsabila Bajaber",
+  description: "Dr. Salsabila Bajaber",
 };
 
 export default function RootLayout({

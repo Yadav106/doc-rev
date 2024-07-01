@@ -19,8 +19,8 @@ interface ReviewProps {
 
 const ProfessionalDetails = () => {
     const location = "Somewhere in Russia";
-    const experience = "Graduated from here";
-    const phone = "+1 2345 6789";
+    const experience = "Graduated from Russia's top medical school";
+    const phone = "+7 1234 5678";
     const mail = "bella@gmail.com";
 
     const router = useRouter();

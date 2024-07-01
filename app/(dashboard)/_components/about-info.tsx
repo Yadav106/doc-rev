@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import toast from 'react-hot-toast'
 
 const AboutInfo = () => {
   return (
@@ -28,13 +31,13 @@ const AboutInfo = () => {
         <Star fill='#000'/>
       </div>
 
-      <Button title='Appointment' variant={'default'} className='mt-3 shadow-md shadow-slate-500'> 
+      <Button title='Appointment' variant={'default'} className='mt-3 shadow-md shadow-slate-500' onClick={() => toast.success('Appointment Registered')}> 
         Get an appointment
       </Button>
 
       <div className='w-full mt-10'>
         <p>
-          Info about Dr. Bella. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis lacus ut leo feugiat, a pretium elit sodales. Ut felis neque, venenatis id nisl sit amet, blandit rhoncus massa. Curabitur fringilla molestie viverra. Duis interdum dolor vestibulum eleifend mattis. Curabitur ac neque urna.
+        Dr. Salsabila Bajaber specializes in being a good friend and saying "noice" a lot. She also is professionally trained in drinking soda (please don't try this at home on your own). Please contact Dr. Salsabila Bajaber's office today to set up an appointment, and her assistant/apprentice Totah will be happy to help you out!
         </p>
       </div>
     </div>
