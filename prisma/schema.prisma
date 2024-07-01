@@ -46,12 +46,20 @@ model Account {
 }
 
 model Review {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  authorId    String @db.ObjectId
-  author      User   @relation(fields: [authorId], references: [id])
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  authorId    String  @db.ObjectId
+  author      User    @relation(fields: [authorId], references: [id])
   authorImage String?
   authorName  String
   title       String
   body        String
   rating      Int
+  replies     Reply[]
+}
+
+model Reply {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  body     String
+  reviewId String @db.ObjectId
+  review   Review @relation(fields: [reviewId], references: [id])
 }
