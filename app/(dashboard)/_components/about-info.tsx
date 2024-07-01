@@ -37,7 +37,7 @@ const AboutInfo = () => {
 
       <div className='w-full mt-10'>
         <p>
-        Dr. Salsabila Bajaber specializes in being a good friend and saying "noice" a lot. She also is professionally trained in drinking soda (please don't try this at home on your own). Please contact Dr. Salsabila Bajaber's office today to set up an appointment, and her assistant/apprentice Totah will be happy to help you out!
+        {`Dr. Salsabila Bajaber specializes in being a good friend and saying "noice" a lot. She also is professionally trained in drinking soda (please don't try this at home on your own). Please contact Dr. Salsabila Bajaber's office today to set up an appointment, and her assistant/apprentice Totah will be happy to help you out!`}
         </p>
       </div>
     </div>
