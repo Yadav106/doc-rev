@@ -85,7 +85,7 @@ const ProfessionalDetails = () => {
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Age : </span>
-                            <span className='font-semibold ml-5'>{`24 years, or the equivalent of a Russian grandmother`}</span>
+                            <span className='font-semibold ml-5'>{`25 years, or the equivalent of a Russian grandmother`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
@@ -156,7 +156,7 @@ const ProfessionalDetails = () => {
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Age : </span>
-                            <span className='font-semibold ml-5'>{`24 years, or the equivalent of a Russian grandmother`}</span>
+                            <span className='font-semibold ml-5'>{`25 years, or the equivalent of a Russian grandmother`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
@@ -180,6 +180,11 @@ const ProfessionalDetails = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='text-sm self-center flex flex-col justify-center'>
+                    For medicine and drugs😈, contact world-renowned pharmacist <br />
+                    <span className='bg-black hover:bg-inherit self-center'> Dr. Prakhar Mishra</span>
             </div>
 
             <div>
