@@ -13,7 +13,7 @@ const LogOutModal:React.FC<ModalProps> = ({
 }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 py-3'>
           <span className='font-bold underline'>Log Out</span>
             Will you really leave us alone?🥺👉🏻👈🏻
           <div className='flex gap-3 self-end'>

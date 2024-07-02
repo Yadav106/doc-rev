@@ -46,16 +46,16 @@ const ProfessionalDetails = () => {
             <div className='flex flex-col gap-2 justify-around md:hidden'>
                 <div className='bg-gray-300/80 p-3 px-5 rounded-xl'>
                     <p className='underline text-sm'>Location</p>
-                    <div className='flex items-baseline gap-2'>
-                        <MapPinIcon width={40}/>
-                        <p className="mt-2 flex font-bold text-3xl">{location}</p>
+                    <div className='flex items-baseline justify-between gap-2'>
+                        <MapPinIcon width={40} className='w-[20%]'/>
+                        <p className="mt-2 flex font-bold text-3xl w-[85%]">{location}</p>
                     </div>
                 </div>
                 <div className='bg-gray-300/80 p-3 px-5 rounded-xl'>
                     <p className='underline text-sm'>Experience</p>
-                    <div className='flex items-baseline gap-2'>
-                        <BriefcaseMedicalIcon width={40}/>
-                        <p className="mt-2 flex font-bold text-3xl">{experience}</p>
+                    <div className='flex items-baseline justify-between gap-2'>
+                        <BriefcaseMedicalIcon width={40} className='w-[20%]'/>
+                        <p className="mt-2 flex font-bold text-3xl w-[85%]">{experience}</p>
                     </div>
                 </div>
                 {/* <div className='bg-gray-300/80 p-3 px-5 rounded-xl'>
@@ -80,32 +80,37 @@ const ProfessionalDetails = () => {
                     <div className='flex flex-col gap-5 p-4 bg-gray-300/80 rounded-xl'>
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Name : </span>
-                            <span className='font-semibold ml-5'>{`Salsabila Bajaber (aka Bella Bee)`}</span>
+                            <span className='font-semibold'>{`Salsabila Bajaber (aka Bella Bee)`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Age : </span>
-                            <span className='font-semibold ml-5'>{`25 years, or the equivalent of a Russian grandmother`}</span>
+                            <span className='font-semibold'>{`25 years, or the equivalent of a Russian grandmother`}</span>
+                        </div>
+
+                        <div className='flex flex-col gap-1'>
+                            <span className='font-semibold text-gray-700'>Married to : </span>
+                            <span className='font-semibold'>{`While she shouldn't be defined by whom she's married to because she's a successful, independent woman, she is in fact married to Henry Cavill 👀`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Passion : </span>
-                            <span className='font-semibold ml-5'>{`Reading, Writing, Threatening`}</span>
+                            <span className='font-semibold'>{`Reading, Writing, Threatening`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Extra-curricular activities : </span>
-                            <span className='font-semibold ml-5'>{`Tax Evasion & Organ Smuggling`}</span>
+                            <span className='font-semibold'>{`Tax Evasion & Organ Smuggling`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Favourite Pastime : </span>
-                            <span className='font-semibold ml-5'>{`Hobnobbing with Mafia members`}</span>
+                            <span className='font-semibold'>{`Hobnobbing with Mafia members`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Accepted payments : </span>
-                            <span className='font-semibold ml-5'>{`Dollars, Bitcoin & Hideo Kojima Memorabilia`}</span>
+                            <span className='font-semibold'>{`Dollars, Bitcoin & Hideo Kojima Memorabilia`}</span>
                         </div>
                     </div>
                 </div>
@@ -151,38 +156,43 @@ const ProfessionalDetails = () => {
                     <div className='flex flex-col gap-5 p-4 bg-gray-300/80 rounded-xl'>
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Name : </span>
-                            <span className='font-semibold ml-5'>{`Salsabila Bajaber (aka Bella Bee)`}</span>
+                            <span className='font-semibold'>{`Salsabila Bajaber (aka Bella Bee)`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Age : </span>
-                            <span className='font-semibold ml-5'>{`25 years, or the equivalent of a Russian grandmother`}</span>
+                            <span className='font-semibold'>{`25 years, or the equivalent of a Russian grandmother`}</span>
+                        </div>
+
+                        <div className='flex flex-col gap-1'>
+                            <span className='font-semibold text-gray-700'>Married to : </span>
+                            <span className='font-semibold'>{`While she shouldn't be defined by whom she's married to because she's a successful, independent woman, she is in fact married to Henry Cavill 👀`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Passion : </span>
-                            <span className='font-semibold ml-5'>{`Reading, Writing, Threatening`}</span>
+                            <span className='font-semibold'>{`Reading, Writing, Threatening`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Extra-curricular activities : </span>
-                            <span className='font-semibold ml-5'>{`Tax Evasion & Organ Smuggling`}</span>
+                            <span className='font-semibold'>{`Tax Evasion & Organ Smuggling`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Favourite Pastime : </span>
-                            <span className='font-semibold ml-5'>{`Hobnobbing with Mafia members`}</span>
+                            <span className='font-semibold'>{`Hobnobbing with Mafia members`}</span>
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <span className='font-semibold text-gray-700'>Accepted payments : </span>
-                            <span className='font-semibold ml-5'>{`Dollars, Bitcoin & Hideo Kojima Memorabilia`}</span>
+                            <span className='font-semibold'>{`Dollars, Bitcoin & Hideo Kojima Memorabilia`}</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className='text-sm self-center flex flex-col justify-center'>
+            <div className='text-sm self-center flex flex-col justify-center text-center'>
                     For medicine and drugs😈, contact world-renowned pharmacist <br />
                     <span className='bg-black hover:bg-inherit self-center'> Dr. Prakhar Mishra</span>
             </div>
