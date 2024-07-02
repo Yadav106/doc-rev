@@ -3,7 +3,7 @@
 import Modal from '@/app/components/Modal'
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 interface ModalProps {
@@ -15,7 +15,9 @@ interface ModalProps {
 const DeleteReplyModal:React.FC<ModalProps> = ({
     isOpen, onClose, id
 }) => {
+    const [isLoading, setIsLoading] = useState(false)
     const deleteReply = (replyId:string) => {
+        setIsLoading(true)
         axios.post(
           "api/reply/delete",
           {
@@ -28,6 +30,7 @@ const DeleteReplyModal:React.FC<ModalProps> = ({
                 toast.error("Some error occured")
             })
             .finally(() => {
+                setIsLoading(false)
                 location.reload()
           })
       }
@@ -36,7 +39,7 @@ const DeleteReplyModal:React.FC<ModalProps> = ({
             <div className='flex flex-col gap-2'>
                 <span className='text-sm font-bold underline'>Delete Reply</span>
                 Do you wanna delete the reply?
-                <Button onClick={() => deleteReply(id)}>
+                <Button onClick={() => deleteReply(id)} disabled={isLoading}>
                     Delete Reply
                 </Button>
             </div>

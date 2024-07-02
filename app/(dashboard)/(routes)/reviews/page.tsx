@@ -26,6 +26,7 @@ interface ReviewProps {
 
 const Reviews = () => {
     const {data:session} = useSession();
+    const [isLoading, setIsLoading] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
     const [deleteModalId, setDeleteModalId] = useState<string>("")
@@ -56,6 +57,7 @@ const Reviews = () => {
                 }
             })
             setReviews(newReviewData)
+            setIsLoading(false)
         }
 
         getReviews();
@@ -103,7 +105,15 @@ const Reviews = () => {
                 </Button>
             </div>
 
-            <div className='flex flex-col gap-3 mt-[20px] px-[30px] mb-10'>
+            {
+                isLoading ?
+                (
+                    <div className="flex flex-col gap-3 mt-[20px] px-[30px] mb-10">
+                        Loading...
+                    </div>
+                ) :
+                (
+                    <div className='flex flex-col gap-3 mt-[20px] px-[30px] mb-10'>
                     {
                         reviews.length > 0 
                         ?
@@ -141,9 +151,11 @@ const Reviews = () => {
                             />
                         })
                         :
-                        <div>Loading...</div>
+                        <div>No reviews found</div>
                     }
             </div>
+                )
+            }
         </>
     )
 }
