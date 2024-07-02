@@ -8,6 +8,9 @@ import ReviewBox from "../../_components/reviewBox";
 import { useSession } from "next-auth/react";
 import DeleteReviewModal from "./components/DeleteReviewModal";
 import EditRevewModal from "./components/EditReviewModal";
+import AddReplyModal from "./components/AddReplyModal";
+import { Reply } from "@prisma/client";
+import DeleteReplyModal from "./components/DeleteReplyModal";
 
 interface ReviewProps {
     id: string,
@@ -17,7 +20,8 @@ interface ReviewProps {
     title: string,
     body: string,
     rating: number,
-    authorEmail: string
+    authorEmail: string,
+    replies: Reply[]
 }
 
 const Reviews = () => {
@@ -31,6 +35,13 @@ const Reviews = () => {
     const [editBody, setEditBody] = useState("")
     const [editRating, setEditRating] = useState(0)
     const [editId, setEditId] = useState("")
+
+    const [isReplyModalOpen, setIsReplyModalOpen] = useState(false)
+    const [replyId, setReplyId] = useState("")
+    const [replyName, setReplyName] = useState("")
+
+    const [isReplyDeleteModalOpen, setIsReplyDeleteModalOpen] = useState(false)
+    const [replyDeleteId, setReplyDeleteId] = useState("")
 
     const [reviews, setReviews] = useState<ReviewProps[]>([])
 
@@ -54,6 +65,25 @@ const Reviews = () => {
         <>
             <AddReviewModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
             <DeleteReviewModal onClose={() => setIsDeleteModalOpen(false)} isOpen={isDeleteModalOpen} id={deleteModalId} />
+            {
+                isReplyDeleteModalOpen && (
+                    <DeleteReplyModal 
+                        isOpen={isReplyDeleteModalOpen}
+                        onClose={() => setIsReplyDeleteModalOpen(false)}
+                        id={replyDeleteId}
+                    />
+                )
+            }
+            {
+                isReplyModalOpen && (
+                    <AddReplyModal 
+                        onClose={() => setIsReplyModalOpen(false)}
+                        isOpen={isReplyModalOpen}
+                        author={replyName}
+                        id={replyId}
+                    />
+                )
+            }
             {
                 isEditModalOpen && (
                     <EditRevewModal 
@@ -88,6 +118,8 @@ const Reviews = () => {
                                 rating={review.rating}
                                 userEmail={session?.user?.email}
                                 authorEmail={review.authorEmail}
+                                replies={review.replies}
+
                                 setIsDeleteModalOpen={setIsDeleteModalOpen}
                                 setDeleteModalId={setDeleteModalId}
 
@@ -99,6 +131,13 @@ const Reviews = () => {
                                 setEditBody={setEditBody}
                                 editRating={editRating}
                                 setEditRating={setEditRating}
+
+                                setReplyModalOpen={setIsReplyModalOpen}
+                                setReplyId={setReplyId}
+                                setReplyName={setReplyName}
+
+                                setReplyDeleteModelOpen={setIsReplyDeleteModalOpen}
+                                setDeleteReplyId={setReplyDeleteId}
                             />
                         })
                         :

@@ -7,6 +7,12 @@ const nextConfig = {
         },
         {
             "hostname": "lh3.googleusercontent.com"
+        },
+        {
+            "hostname": "cdn.discordapp.com"
+        },
+        {
+            "hostname": "drive.google.com"
         }
        ]
     }

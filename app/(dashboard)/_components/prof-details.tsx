@@ -183,35 +183,10 @@ const ProfessionalDetails = () => {
             </div>
 
             <div>
-                <p className='font-bold text-[30px] underline mt-[2rem]'>
-                    Reviews
-                </p>
-                
                 <div className='flex flex-col gap-3 mt-[20px]'>
-                    {
-                        reviews.length > 0 
-                        ?
-                        reviews.map(review => {
-                            return <ReviewBox 
-                                key={review.id} 
-                                id={review.id}
-                                author={review.authorName} 
-                                authorImage={review.authorImage}
-                                title={review.title}
-                                body={review.body}
-                                rating={review.rating}
-                            />
-                        })
-                        :
-                        <div>Loading...</div>
-                    }
-                    {
-                        reviews.length > 0 && (
-                            <Button variant='ghost' className='mb-4' onClick={() => router.push('/reviews')}>
-                                Read More
-                            </Button>
-                        )
-                    }
+                    <Button variant='ghost' className='mb-4' onClick={() => router.push('/reviews')}>
+                        Read Reviews
+                    </Button>
                 </div>  
             </div>
         </div>

@@ -11,7 +11,8 @@ export async function GET(
         const reviews = await prisma.review.findMany(
             {
                 include: {
-                    author: true
+                    author: true,
+                    replies: true
                 }
             }
         )
