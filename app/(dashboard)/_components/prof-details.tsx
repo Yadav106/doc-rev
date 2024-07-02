@@ -44,15 +44,15 @@ const ProfessionalDetails = () => {
     return (
         <div className='flex flex-col px-10 gap-1'>
             <div className='flex flex-col gap-2 justify-around md:hidden'>
-                <div className='bg-gray-300/80 p-3 px-5 rounded-xl'>
-                    <p className='underline text-sm'>Location</p>
+                <div className='bg-gray-300/80 p-3 px-1 rounded-xl'>
+                    {/* <p className='underline text-sm'>Location</p> */}
                     <div className='flex items-baseline justify-between gap-2'>
                         <MapPinIcon width={40} className='w-[20%]'/>
                         <p className="mt-2 flex font-bold text-3xl w-[85%]">{location}</p>
                     </div>
                 </div>
-                <div className='bg-gray-300/80 p-3 px-5 rounded-xl'>
-                    <p className='underline text-sm'>Experience</p>
+                <div className='bg-gray-300/80 p-3 px-1 rounded-xl'>
+                    {/* <p className='underline text-sm'>Experience</p> */}
                     <div className='flex items-baseline justify-between gap-2'>
                         <BriefcaseMedicalIcon width={40} className='w-[20%]'/>
                         <p className="mt-2 flex font-bold text-3xl w-[85%]">{experience}</p>
