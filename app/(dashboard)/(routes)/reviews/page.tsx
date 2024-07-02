@@ -64,7 +64,7 @@ const Reviews = () => {
     }, [])
 
     return (
-        <>
+        <div className="pb-[20px]">
             <AddReviewModal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
             <DeleteReviewModal onClose={() => setIsDeleteModalOpen(false)} isOpen={isDeleteModalOpen} id={deleteModalId} />
             {
@@ -156,7 +156,7 @@ const Reviews = () => {
             </div>
                 )
             }
-        </>
+        </div>
     )
 }
  
